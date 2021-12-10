@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/my-experiences-app/static/css/main.6e6b61fe.chunk.css",
+    "main.js": "/my-experiences-app/static/js/main.2ef93f2b.chunk.js",
+    "main.js.map": "/my-experiences-app/static/js/main.2ef93f2b.chunk.js.map",
+    "runtime-main.js": "/my-experiences-app/static/js/runtime-main.c5e69503.js",
+    "runtime-main.js.map": "/my-experiences-app/static/js/runtime-main.c5e69503.js.map",
+    "static/js/2.72777e73.chunk.js": "/my-experiences-app/static/js/2.72777e73.chunk.js",
+    "static/js/2.72777e73.chunk.js.map": "/my-experiences-app/static/js/2.72777e73.chunk.js.map",
+    "static/js/3.a1fbc4cf.chunk.js": "/my-experiences-app/static/js/3.a1fbc4cf.chunk.js",
+    "static/js/3.a1fbc4cf.chunk.js.map": "/my-experiences-app/static/js/3.a1fbc4cf.chunk.js.map",
+    "index.html": "/my-experiences-app/index.html",
+    "static/css/main.6e6b61fe.chunk.css.map": "/my-experiences-app/static/css/main.6e6b61fe.chunk.css.map",
+    "static/js/2.72777e73.chunk.js.LICENSE.txt": "/my-experiences-app/static/js/2.72777e73.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c5e69503.js",
+    "static/js/2.72777e73.chunk.js",
+    "static/css/main.6e6b61fe.chunk.css",
+    "static/js/main.2ef93f2b.chunk.js"
+  ]
+}
