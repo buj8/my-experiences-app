@@ -1,0 +1,999 @@
+/* BODY */
+
+body {
+  background: grey;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "Helvetica";
+}
+
+/* HEADER */
+
+.header {
+  height: 60px;
+  display: flex;
+  flex: 1 1 auto;
+  border: 2px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-style: solid;
+  border-color: black;
+  align-items: center;
+  background-color: rgba(78, 78, 78, 0.795);
+  font-weight: bold;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 30%;
+}
+
+.navbar li {
+  float: left;
+  padding-right: 8%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#navbar-left {
+  margin-left: 5%;
+}
+
+#navbar-right {
+  margin-left: 50%;
+}
+
+.navbar-logo {
+  margin-left: 25px;
+  margin-right: 25px;
+  height: 42px;
+}
+
+#navbar-x {
+  visibility: hidden;
+  font-weight: lighter;
+}
+
+#botonHeader {
+  padding: 0.5%;
+  color: white;
+  border-radius: 5%;
+  left: 40%;
+  position: relative;
+  width: 10%;
+  background: none;
+  border: none;
+  display: inherit;
+
+}
+
+#botonHeader:hover {
+  cursor: pointer;
+  color: white;
+  background: rgb(77, 77, 77);
+  border: 1px solid white;
+
+}
+
+#fotoHeader {
+  width: 25%;
+  border-radius: 50%;
+}
+
+#userHeader {
+  font-weight: bold;
+  text-align: center;
+  padding: 0%;
+  margin-top: 8%;
+  margin-left: 5%;
+  display: inherit;
+}
+
+/* HEADER TABLET */
+
+@media only screen and (max-width: 768px) and (min-device-width: 601px) {
+  .header {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    display: block;
+  }
+
+  .navbar {
+    display: block;
+  }
+
+  #navbar-left {
+    margin-left: 0%;
+    position: fixed;
+    top: 20%;
+    left: 6%;
+    font-size: 150%;
+  }
+
+  #navbar-right {
+    width: 40%;
+    margin-left: 0%;
+    position: fixed;
+    top: 80%;
+    left: 6%;
+    font-size: 150%;
+  }
+
+  .navbar-logo {
+    position: fixed;
+    margin: 0%;
+    left: 6%;
+    top: 7%;
+  }
+
+  #navbar-x {
+    visibility: visible;
+    position: fixed;
+    font-size: 150%;
+    left: 45%;
+    top: 3%;
+  }
+
+}
+
+
+/* POPUP */
+
+#popup {
+  height: 75%;
+  width: 80%;
+  position: fixed;
+  z-index: 1;
+  top: 5%;
+  left: 10%;
+  background-color: rgb(128, 128, 128);
+  border: 2px solid black;
+  color: white;
+}
+
+#popup h1 {
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+#popup ul {
+  padding: 0;
+  font-size: 110%;
+  list-style-type: none;
+  margin-top: 4%;
+}
+
+#popup li {
+  margin-bottom: 2%;
+}
+
+/* PERFIL */
+
+#datosPerfil {
+  margin-left: 5%;
+}
+
+/* FOOTER */
+
+.footer {
+  position: absolute;
+  top: 93%;
+  height: 7%;
+  background-color: rgba(78, 78, 78, 0.795);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+  font-size: medium;
+}
+
+.footerinfo {
+  margin-right: 2%;
+  color: white;
+}
+
+#social-layout {
+  position: absolute;
+  right: 15px;
+}
+
+.social-media {
+  height: 28px;
+  padding-right: 30px;
+}
+
+/* FOOTER TABLET */
+
+@media only screen and (max-width: 768px) and (min-device-width: 601px) {
+
+  .footer {
+    background: none;
+    border: none;
+  }
+
+  #social-layout {
+    position: absolute;
+    left: 6%;
+  }
+
+  .social-media {
+    height: 20px;
+    padding-right: 30px;
+  }
+
+}
+
+.op1 {
+  font-size: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.op5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  font-size: medium;
+}
+
+.center-container {
+  background-color: rgb(184, 184, 184, 0.5);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px;
+  width: 100%;
+  border-style: solid;
+  border-color: black;
+  font-size: medium;
+}
+
+.titulos {
+  font-size: 40px;
+}
+
+#mapa {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  align-items: center;
+}
+
+#titulo_map {
+  color: white;
+  text-shadow: 2px 2px #7a7a7a;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+#titulo_exp {
+  color: white;
+  text-shadow: 2px 2px #7a7a7a;
+  text-align: center;
+  margin-block-start: 1.25em;
+  margin-block-end: 0.5em;
+}
+
+#cont1 {
+  margin-top: 2%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.field {
+  display: flex;
+  position: realtive;
+  margin: 5em auto;
+  width: 30%;
+  flex-direction: row;
+  box-shadow: 1px 1px 0 rgb(176, 179, 180), 2px 2px 0 rgb(176, 179, 180), 3px 3px 0 rgb(176, 179, 180), 4px 4px 0 rgb(176, 179, 180), 5px 5px 0 rgb(176, 179, 180), 6px 6px 0 rgb(176, 179, 180), 7px 7px 0 rgb(176, 179, 180);
+}
+
+.field>input[type="text"], .field>button {
+  display: block;
+  font: 1.2em "Montserrat Alternates";
+}
+
+.field>input[type="text"] {
+  flex: 1;
+  padding: 0.6em;
+  border: 0.2em solid rgb(184, 184, 184);
+}
+
+.field>button {
+  padding: 0.6em 0.8em;
+  background-color: rgb(67, 70, 71);
+  color: white;
+  border: none;
+}
+
+#busqueda {
+  font-size: 40px;
+  text-align: center;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+#searcharea {
+  color: white;
+  text-shadow: 2px 2px #7a7a7a;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 40px;
+}
+
+.busq {
+  flex-direction: column;
+  align-content: center;
+  height: 200px;
+}
+
+.botones-container {
+  height: 60px;
+  display: flex;
+}
+
+#sesion {
+  display: none;
+}
+
+#botones1 {
+  margin-left: 40%;
+  display: block;
+}
+
+.bot-perfil {
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  margin-left: 40%;
+}
+
+.nombre {
+  margin-top: 5.5%;
+  display: flex;
+}
+
+.boton-header {
+  padding: 5%;
+  text-align: center;
+  width: 112px;
+  font-weight: bold;
+  background-color: rgb(176, 179, 180, 0);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.cerrar-ses {
+  width: 180px;
+  font-weight: bold;
+  background-color: rgb(176, 179, 180, 0);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.boton-header:hover {
+  background-color: darkgray;
+}
+
+#boton-acceso {
+  display: block;
+  margin-right: 2px;
+  padding: 2%;
+}
+
+#boton-register {
+  display: block;
+  margin-left: 2px;
+  padding: 5%;
+}
+
+.ul_menu {
+  list-style-type: none;
+  margin-left: 35px;
+  padding: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+.li_menu {
+  height: 60px;
+  float: left;
+}
+
+.li_menu a {
+  display: block;
+  background-color: rgb(176, 179, 180, 0);
+  color: white;
+  text-shadow: 1px 1px #7a7a7a;
+  text-align: center;
+  text-decoration: none;
+  font-family: Helvetica;
+  height: 17px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 21.5px;
+  padding-bottom: 21.5px;
+}
+
+.li_menu a:hover {
+  background-color: darkgray;
+  color: white;
+  height: 30px;
+  text-decoration: underline;
+}
+
+.link-icono {
+  margin-right: 2%;
+}
+
+
+#faq {
+  margin-right: 3em;
+  font-size: 10px;
+  color: white;
+}
+
+#terms {
+  font-size: 10px;
+  color: white;
+}
+
+
+
+.experience:hover {
+  cursor: pointer;
+}
+
+.Columnas {
+  background-color: rgb(184, 184, 184, 0.5);
+  border-color: rgb(184, 184, 184, 0.2);
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#columna1 {
+  display: flex;
+  margin-top: 3%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#columna2 {
+  display: flex;
+  margin-right: 5%;
+  margin-left: 5%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#columna3 {
+  display: flex;
+  margin-top: 5%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.piefoto {
+  margin-top: 0px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 4px;
+  font-size: 12.5px;
+  width: 300px;
+  margin-bottom: 3em;
+  color: rgb(219, 218, 218);
+  font-family: Verdana;
+}
+
+#imagen_grande {
+  width: 100%;
+  text-align: center;
+  font-family: Helvetica;
+}
+
+#imagen_grande h1 {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.img_grande {
+  left: 0;
+  width: 30%;
+}
+
+#segunda_seccion {
+  width: 100%;
+  height: 650px;
+}
+
+.columna_experiencia {
+  background-color: grey;
+  float: left;
+  display: block;
+  padding-top: 1%;
+  padding-left: 1%;
+  width: 19%;
+  height: 630px;
+  font-family: Helvetica;
+  align-content: center;
+}
+
+.video {
+  width: 95%;
+}
+
+.parrafo {
+  text-align: center;
+  margin-bottom: 0px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-top: 0px;
+  background-color: grey;
+  font-size: 12px;
+  width: 95%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: rgb(219, 218, 218);
+  font-family: Verdana;
+}
+
+.parrafo:hover {
+  text-shadow: 1px 1px grey;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(204, 196, 194);
+}
+
+.columna_experiencia:hover {
+  background-color: rgb(204, 196, 194);
+  cursor: pointer;
+}
+
+.columna_experiencia a:hover {
+  color: black;
+  background-color: rgb(204, 196, 194);
+}
+
+.Img_Exp {
+  /*Para las imágenes de experiencias de la página principal*/
+  width: 300px;
+  height: 150px;
+  align-items: center;
+}
+
+.img_exp
+/*Para las imágenes de las sub-páginas*/
+
+  {
+  width: 95%;
+  align-self: center;
+}
+
+.Titulo {
+  color: white;
+  text-align: center;
+  font-style: oblique;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.secondary_page_title {
+  color: white;
+  text-shadow: 2px 2px #7a7a7a;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+.video_title {
+  color: white;
+  text-align: center;
+  font-style: oblique;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+
+
+@media only screen and (max-width: 768px) and (min-device-width: 601px) {
+  #popup-open {
+    display: block;
+  }
+
+  #busq {
+    justify-content: center;
+  }
+
+  .nav-container {
+    display: none;
+  }
+
+  .botones-container {
+    display: none;
+  }
+
+  .titulos {
+    font-size: 25px;
+  }
+
+  .Columnas {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: default;
+  }
+
+  .busq {
+    height: 150px;
+  }
+
+  #searchform {
+    position: absolute;
+    left: 184.5px;
+  }
+
+  #searchform {
+    font-size: 10px;
+    box-shadow: none;
+  }
+
+
+  .logo {
+    margin-left: 60px;
+    height: 25px;
+  }
+
+  ul {
+    list-style: none;
+    float: right;
+    margin: 0;
+  }
+
+  .experiencias {
+    list-style: none;
+  }
+
+  .columna_experiencia {
+    padding-left: 5%;
+    width: 90%;
+    padding-bottom: 40%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #popup-open {
+    display: block;
+  }
+
+  #busq {
+    justify-content: center;
+  }
+
+  .nav-container {
+    display: none;
+  }
+
+  .botones-container {
+    display: none;
+  }
+
+  .titulos {
+    font-size: 22px;
+  }
+
+  .Columnas {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: default;
+  }
+
+  .busq {
+    height: 130px;
+  }
+
+  #searchform {
+    position: absolute;
+    left: 130px;
+  }
+
+  #searchform {
+    font-size: 10px;
+    box-shadow: none;
+  }
+
+
+  .logo {
+    margin-left: 50px;
+    height: 22px;
+  }
+
+  ul {
+    list-style: none;
+    float: right;
+    margin: 0;
+  }
+
+  .experiencias {
+    list-style: none;
+  }
+
+  .columna_experiencia {
+    padding-left: 5%;
+    width: 90%;
+    padding-bottom: 40%;
+  }
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 25%;
+  right: 20%;
+  left: 20%;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  overflow: auto;
+}
+
+/* Add styles to the form container */
+
+.form-container {
+  max-width: 100%;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+
+.form-container input[type="text"], .form-container input[type="password"] {
+  width: 95%;
+  padding: 15px;
+  margin: 2% 0% 4%;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+
+.form-container input[type="text"]:focus, .form-container input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+  width: 100%;
+}
+
+/* Set a style for the submit/login button */
+
+.form-container .btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+
+.cancel {
+  color: white;
+  background-color: black;
+  float: right;
+  border: none;
+  padding: 5px 10px;
+}
+
+.cancel:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+/* Add some hover effects to buttons */
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/*Registration */
+
+.register-popup {
+  display: none;
+  position: fixed;
+  bottom: 25%;
+  right: 20%;
+  left: 20%;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-Registration {
+  max-width: 100%;
+  padding: 10px;
+  background-color: white;
+}
+
+/* When the inputs get focus, do something */
+
+.form-Registration input[type="text"]:focus, .form-Registration input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+  width: 100%;
+}
+
+/* Set a style for the submit/login button */
+
+.form-Registration .btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+
+.form-Registration .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+
+.form-Registration .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+#myRegistration {
+  top: 20%;
+  width: 60%;
+}
+
+#myRegistration input {
+  padding: 5px;
+  width: 98%;
+}
+
+/* Full-width input fields */
+
+#myRegistration input[type="text"], #myRegistration input[type="password"], #myRegistration input[type="email"], #myRegistration input[type="date"] {
+  border: none;
+  margin: 0px 0px 15px 0px;
+  background: #f1f1f1;
+}
+
+#PopupHTML {
+  color: white;
+  justify-content: center;
+  background-color: gray;
+  left: 10%;
+  top: 0%;
+  position: sticky;
+  width: 80%;
+}
+
+#PopupHTML p {
+  padding-left: 5%;
+}
+
+#PopupHTML h1 {
+  padding-left: 5%;
+}
+
+area {
+  cursor: pointer;
+}
+
+#imgDescription {
+  text-align: center;
+  font-size: large;
+  color: white;
+  padding: 3% 3% 10% 10%;
+}
+
+#img_exp {
+  text-align: center;
+  width: 60%;
+}
+
+inicio {
+  margin-left: 20%;
+}
+
+#loginError {
+  color: red;
+  padding-bottom: 1%;
+}
+
+.tituloPopup {
+  padding-top: 5%;
+  text-align: center;
+}
+
+#formExp input {
+  width: 90%;
+}
+
+#img_add {
+  padding-top: 5%;
+  padding-left: 5%;
+  width: 10%;
+}
+
+#formExp a {
+  color: darkred;
+}
+
+#userimg {
+  width: 10%;
+  padding: 3% 0% 1% 5%;
+}
+
+#profileEmail {
+  padding-bottom: 3%;
+}
+
+#cierreSesion {
+  text-align: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+#confirmarCierre {
+  width: 100%;
+  text-align: center;
+  background: darkgray;
+  color: white;
+  font-weight: bold;
+  padding: 1% 0% 1% 0%;
+}
+
+#confirmarCierre:hover {
+  cursor: pointer;
+}
