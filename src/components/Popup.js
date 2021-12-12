@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
-
-import { Button, Modal, Form } from 'react-bootstrap';
+import React from 'react';
 
 import Perfil from './Perfil'
 import Login from './Login'
 import Registro from './Registro';
 import Mensajes from './Mensajes';
 import Cerrar from './Cerrar';
+import PagExperiencia from './PagExperiencia';
 
 function Popup(props) {
 
-    const [show, setShow] = useState(false);
-
-    var temp;
-
     switch (props.caso) {
+        case "Experiencia":
+            return <PagExperiencia experiencia={props.experiencia} />;
         case "Perfil":
             return <Perfil />;
         case "Login":
@@ -29,6 +26,7 @@ function Popup(props) {
             return <Mensajes />;
         case "Cerrar sesión":
             return <Cerrar />;
+
         default:
             break;
     }

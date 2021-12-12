@@ -8,7 +8,7 @@ import Popup from './Popup';
 
 import GetCurrentUser from '../data/currentUser'
 
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 function Header() {
 
@@ -44,7 +44,7 @@ function Header() {
     return <>
         <Navbar collapseOnSelect id="header" expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home"><img className="navbar-logo" src="images/web_logo.png" alt="Logo_web"></img></Navbar.Brand>
+                <Navbar.Brand href="#"><img className="navbar-logo" src="images/web_logo.png" alt="Logo_web"></img></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -74,8 +74,5 @@ function Header() {
 
 }
 
-function cerrarSesion() {
-    localStorage.setItem("currentUser", "");
-}
 
 export default Header;

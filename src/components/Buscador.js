@@ -1,4 +1,5 @@
-import { Tooltip, OverlayTrigger, Card, Col, CardGroup } from 'react-bootstrap';
+import { Tooltip, OverlayTrigger, Card, Col, CardGroup, Modal } from 'react-bootstrap';
+import Popup from './Popup';
 import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { AiFillLike } from 'react-icons/ai';
@@ -7,6 +8,17 @@ function Buscador() {
 
     const [busqLugar, setLugar] = useState("");
     const [busqCont, setCont] = useState("");
+
+    const [currentExp, setExp] = useState("");
+    const [show, setShow] = useState(false);
+
+
+
+
+    function openExp(expId) {
+        setExp(expId);
+        setShow(true);
+    }
 
     return <><div id="busq">
         <h2>Aquí empieza tu experiencia</h2>
@@ -43,56 +55,71 @@ function Buscador() {
         <div id="colExperiencias">
             <ColumnaExperiencia lugar={busqLugar} />
         </div>
+        <Modal
+            size="xl"
+            show={show}
+            onHide={() => setShow(false)}>
+            <Modal.Header closeButton>
+                <Modal.Title>
+                    {currentExp.nombre + currentExp.lugar}
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body><Popup caso={"Experiencia"} experiencia={currentExp} /></Modal.Body>
+        </Modal>
     </>
-}
 
-function ColumnaExperiencia(props) {
-    var exps = [];
-    var columna = [];
-    var temp = [];
-    for (var i = 1; i < localStorage.getItem("nExp"); i++) {
-        exps.push(JSON.parse(localStorage.getItem("E" + i)));
-    }
-
-    if (props.lugar) {
-        for (var i = 0; i < exps.length; i++) {
-            if (exps[i].lugar.toLowerCase().includes(props.lugar.toLowerCase())) {
-                temp.push(exps[i]);
-            }
+    function ColumnaExperiencia(props) {
+        var exps = [];
+        var columna = [];
+        var temp = [];
+        for (var i = 1; i < localStorage.getItem("nExp"); i++) {
+            exps.push(JSON.parse(localStorage.getItem("E" + i)));
         }
-        exps = temp;
+
+        if (props.lugar) {
+            for (i = 0; i < exps.length; i++) {
+                if (exps[i].lugar.toLowerCase().includes(props.lugar.toLowerCase())) {
+                    temp.push(exps[i]);
+                }
+            }
+            exps = temp;
+        }
+
+        for (i = 0; i < 9; i += 3) {
+            columna.push(<CardGroup>
+                <TarjetaExperiencia id={"exp" + i} experiencia={exps[i]} />
+                <TarjetaExperiencia id={"exp" + (i + 1)} experiencia={exps[i + 1]} />
+                <TarjetaExperiencia id={"exp" + (i + 2)} experiencia={exps[i + 2]} />
+            </CardGroup>)
+        }
+
+        return <> {columna} </>
     }
 
-    for (var i = 0; i < 9; i += 3) {
-        columna.push(<CardGroup>
-            <TarjetaExperiencia experiencia={exps[i]} />
-            <TarjetaExperiencia experiencia={exps[i + 1]} />
-            <TarjetaExperiencia experiencia={exps[i + 2]} />
-        </CardGroup>)
+    function TarjetaExperiencia(props) {
+        if (!props.experiencia) {
+            return <></>;
+        }
+        return <Card id={props.id}>
+            <div onClick={() => openExp(props.experiencia)}>
+                <Card.Img variant="top" src={props.experiencia.imagen} />
+                <Card.Body>
+                    <Card.Title>{props.experiencia.lugar}</Card.Title>
+                    <Card.Text>
+                        Por <strong>{JSON.parse(localStorage.getItem(props.experiencia.user)).username}</strong>
+                    </Card.Text>
+                    <Card.Text>
+                        <strong>{props.experiencia.likes.length} </strong><AiFillLike />
+                    </Card.Text>
+                    <Card.Text>
+                        {props.experiencia.descripcion}
+                    </Card.Text>
+                </Card.Body>
+            </div>
+        </Card>
     }
-
-    return <> {columna} </>
 }
 
-function TarjetaExperiencia(props) {
-    if (!props.experiencia) {
-        return <></>;
-    }
-    return <Card>
-        <Card.Img variant="top" src={props.experiencia.imagen} />
-        <Card.Body>
-            <Card.Title>{props.experiencia.lugar}</Card.Title>
-            <Card.Text>
-                Por <strong>{JSON.parse(localStorage.getItem(props.experiencia.user)).username}</strong>
-            </Card.Text>
-            <Card.Text>
-                <strong>{props.experiencia.likes.length} </strong><AiFillLike />
-            </Card.Text>
-            <Card.Text>
-                {props.experiencia.descripcion}
-            </Card.Text>
-        </Card.Body>
-    </Card>
-}
+
 
 export default Buscador;

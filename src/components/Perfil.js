@@ -10,7 +10,7 @@ function Perfil() {
     console.log(currentUser);
     return <>
         <div id="Perfil">
-            <img src={currentUser.picture} />
+            <img src={currentUser.picture} alt="fotoPerfil" />
             <ul>
                 <li><b>Nombre: </b>{currentUser.name} {currentUser.surname}</li>
                 <li><b>Usuario: </b>{currentUser.username}</li>

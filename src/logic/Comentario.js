@@ -10,4 +10,23 @@ class Comentario {
             this.likes.push((localStorage.getItem("currentUser")));
         }
     }
+
+    addComment() {
+        if (localStorage.getItem("nCom") === null) {
+            localStorage.setItem("nCom", "0");
+        }
+        else {
+            var nusers = parseInt(localStorage.getItem("nCom"));
+            nusers++;
+            localStorage.setItem("nCom", nusers.toString());
+        }
+    }
+
+    saveComment() {
+        this.addComment();
+        localStorage.setItem("C" + parseInt(localStorage.getItem("nCom")), JSON.stringify(this));
+    }
+
 }
+
+export default Comentario

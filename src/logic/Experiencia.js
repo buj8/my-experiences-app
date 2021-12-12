@@ -1,6 +1,7 @@
 class Experiencia {
 
-    constructor(user, lugar, continente, nombre, descripcion, precio) {
+    constructor(expId, user, lugar, continente, nombre, descripcion, precio) {
+        this.expId = expId;
         this.user = user;
         this.lugar = lugar;
         this.continente = continente;
@@ -34,6 +35,14 @@ class Experiencia {
 
     getLikes() {
         return this.likes.length();
+    }
+
+    getPrecio() {
+        var dolar = "$";
+        for (var i = 0; i < this.precio; i++) {
+            dolar += "$";
+        }
+        return dolar;
     }
 
 }

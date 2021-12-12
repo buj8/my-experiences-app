@@ -82,7 +82,6 @@ function checkAvailability(form) {
 
     for (var i = 1; i < parseInt(localStorage.getItem("nUsers")) + 1; i++) {
         temp = jsonToUser(localStorage.getItem("U" + i));
-        //console.log(temp);
         if (email === temp.email || username === temp.username) {
             return false;
         }
@@ -94,7 +93,7 @@ function checkAvailability(form) {
 function registerUser(form) {
     var gender = "male";
     var picture = "https://randomuser.me/api/portraits/men/" + Math.floor(Math.random() * 100) + ".jpg";
-    if (form[2].value == 2) {
+    if (parseInt(form[2].value) === 2) {
         gender = "female";
         picture = "https://randomuser.me/api/portraits/women/" + Math.floor(Math.random() * 100) + ".jpg";
     }

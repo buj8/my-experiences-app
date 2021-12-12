@@ -1,4 +1,4 @@
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 function Cerrar() {
     const logOut = (event) => {

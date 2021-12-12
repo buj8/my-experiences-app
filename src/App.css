@@ -8,6 +8,59 @@ body {
   font-family: "Helvetica";
 }
 
+/* PAG EXPERIENCIA */
+
+#expInfo {
+  display: flex;
+  align-items: top;
+  justify-content: left;
+  width: 100%;
+}
+
+#expData {
+  width: 30%;
+  padding-left: 2%;
+}
+
+#fotoExp {}
+
+.commentUser {
+  margin-top: 1%;
+}
+
+.commentPic {
+  margin: 1%;
+  height: 60px;
+  object-fit: cover;
+}
+
+.commentText {
+  width: 60%;
+  margin: 1%;
+  margin-left: 5%;
+}
+
+.comment {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 10%;
+  color: black;
+  background: white;
+  border: 1px solid #424242;
+  margin-bottom: 1%;
+}
+
+#posterInfo {
+  padding: 1%;
+  position: relative;
+  width: 40%;
+  border: 1px solid white;
+  background: rgb(114, 114, 114);
+  margin-bottom: 7%;
+}
+
+
 /* HEADER */
 
 #header {

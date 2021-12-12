@@ -4,4 +4,16 @@ class Mensaje {
         this.u2 = u2;
         this.txt = txt;
     }
+
+    addMensaje() {
+        if (localStorage.getItem("nMsg") === null) {
+            localStorage.setItem("nMsg", "0");
+        }
+        else {
+            var nusers = parseInt(localStorage.getItem("nUsers"));
+            nusers++;
+            localStorage.setItem("nMsg", nusers.toString());
+        }
+    }
+
 }

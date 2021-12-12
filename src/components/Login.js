@@ -5,10 +5,10 @@ function Login() {
 
 
     const handleSubmit = (event) => {
-        event.preventDefault();
         const form = event.currentTarget;
-        console.log(form[1].value);
-
+        if (!checkLogin(form)) {
+            event.preventDefault();
+        }
 
     };
 
@@ -27,5 +27,15 @@ function Login() {
         </Button>
     </Form>;
 
+}
+
+function checkLogin(form) {
+    for (var i = 1; i < parseInt(localStorage.getItem("nUsers") + 1); i++) {
+        if (JSON.parse(localStorage.getItem("U" + i)).email === form[0].value && JSON.parse(localStorage.getItem("U" + i)).pass === form[1].value) {
+            localStorage.setItem("currentUser", "U" + i);
+            return true;
+        }
+    }
+    return false;
 }
 export default Login;
