@@ -1,26 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 
+import Popup from './Popup';
+
 import GetCurrentUser from '../data/currentUser'
+
+import { Button, Modal } from 'react-bootstrap';
 
 function Header() {
 
-    var navbarRight = <ul id="navbar-right" className="navbar">
-        <li><a href="#">Iniciar sesión</a></li>
-        <li><a href="#">Registro</a></li>
-    </ul >;
+    const [popupState, setPopupState] = useState();
+    const [show, setShow] = useState(false);
+
+
+
+
+    function openPopup(caso) {
+        setPopupState(caso);
+        setShow(true);
+    }
+
+    var navbarRight = <>
+        <Nav.Link href="#" onClick={() => openPopup("Login")}>Login</Nav.Link>
+        <Nav.Link href="#" onClick={() => openPopup("Registro")}>Registro</Nav.Link>
+    </>;
+
 
     if (localStorage.getItem("currentUser")) {
         var currentUser = GetCurrentUser();
-        navbarRight = <button id="botonHeader">
-            <img id="fotoHeader" src={currentUser.picture} />
-            <div id="userHeader"></div>
-        </button>
-
-
+        navbarRight = <NavDropdown title={"@" + currentUser.username} id="collasible-nav-dropdown">
+            <NavDropdown.Item onClick={() => openPopup("Perfil")} href="#">Perfil </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => openPopup("Tus experiencias")} href="#">Experiencias</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => openPopup("Ránking")} href="#">Ránking</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => openPopup("Mensajes")} href="#">Mensajes</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item onClick={() => openPopup("Cerrar sesión")} href="#">Cerrar sesión</NavDropdown.Item>
+        </NavDropdown>
     }
 
     return <>
@@ -30,31 +48,34 @@ function Header() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Inicio</Nav.Link>
-                        <Nav.Link href="#pricing">FAQ</Nav.Link>
-                        <Nav.Link href="#pricing">Contacto</Nav.Link>
+                        <Nav.Link href="#">Inicio </Nav.Link>
+                        <Nav.Link href="#" onClick={() => openPopup("FAQ")}>FAQ</Nav.Link>
+                        <Nav.Link href="#" onClick={() => openPopup("Contacto")}>Contacto</Nav.Link>
                     </Nav>
                     <Nav>
-                        <NavDropdown title={"@" + currentUser.username} id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#">Perfil</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Experiencias</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Ránking</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#">Mensajes</NavDropdown.Item>
-                        </NavDropdown>
-
+                        {navbarRight}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        <Modal
+            size="xl"
+            show={show}
+            onHide={() => setShow(false)}>
+            <Modal.Header closeButton>
+                <Modal.Title>
+                    {popupState}
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body><Popup caso={popupState} /></Modal.Body>
+        </Modal>
     </>
 
 
 }
 
-
-function choosePopup(popupName) {
-    localStorage.setItem("casoPopup", popupName);
+function cerrarSesion() {
+    localStorage.setItem("currentUser", "");
 }
 
 export default Header;

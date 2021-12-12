@@ -8,9 +8,8 @@ function Perfil() {
     var currentUser = GetCurrentUser();
 
     console.log(currentUser);
-    return <div id="popup">
-        <div id="datosPerfil">
-            <h1>Tu perfil</h1>
+    return <>
+        <div id="Perfil">
             <img src={currentUser.picture} />
             <ul>
                 <li><b>Nombre: </b>{currentUser.name} {currentUser.surname}</li>
@@ -20,7 +19,7 @@ function Perfil() {
                 <li><b>Interés:</b> {currentUser.interest}</li>
             </ul>
         </div>
-    </div>
+    </>
 }
 
 

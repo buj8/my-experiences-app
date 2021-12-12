@@ -134,35 +134,36 @@ body {
 
 /* POPUP */
 
-#popup {
-  height: 75%;
-  width: 80%;
-  position: fixed;
-  z-index: 1;
-  top: 5%;
-  left: 10%;
-  background-color: rgb(128, 128, 128);
-  border: 2px solid black;
+
+
+.modal-content {
+  background: #999999;
   color: white;
 }
 
-#popup h1 {
-  margin-top: 2%;
-  margin-bottom: 3%;
-}
-
-#popup ul {
-  padding: 0;
-  font-size: 110%;
+.modal-content ul {
   list-style-type: none;
-  margin-top: 4%;
+  padding: 0;
+  margin-top: 2%;
 }
 
-#popup li {
-  margin-bottom: 2%;
+.modal-content li {
+  margin-top: 2%;
 }
+
+/* PERFIL */
+#Perfil {
+  padding-left: 5%;
+}
+
+#Perfil .modal-title {
+  padding-left: 5%;
+}
+
 
 /* BUSQUEDA */
+
+
 #busqueda {
   font-size: 40px;
   text-align: center;
@@ -215,6 +216,7 @@ h2 {
 #busq {
   margin-top: 3%;
   margin-left: 10%;
+  margin-right: 10%;
   height: 40%;
   width: 80%;
 }
@@ -224,9 +226,33 @@ h2 {
   color: white;
 }
 
+#colExperiencias {
+  display: grid;
+  position: relative;
+  margin-top: 25%;
+  margin-bottom: 15%;
+  margin-left: 10%;
+  width: 80%;
+}
+
+#colExperiencias .card {
+  cursor: pointer;
+  color: white;
+  background: #616161;
+  border: 1px solid white;
+}
+
+#colExperiencias .card:hover {
+  background: #999999;
+}
+
 /* BUSQUEDA TABLET */
 
 @media only screen and (max-width: 768px) and (min-device-width: 601px) {
+
+  #colExperiencias {
+    margin-top: 80%;
+  }
 
   #busq h2 {
     margin-top: 5%;
@@ -266,7 +292,7 @@ h2 {
 /* FOOTER */
 
 .footer {
-  position: absolute;
+  position: relative;
   top: 93%;
   height: 7%;
   background-color: #212529;
@@ -395,6 +421,11 @@ h2 {
 }
 
 
+/* MENSAJES */
+.list-group-item.active {
+  background-color: #212529;
+  border-color: white;
+}
 
 .botones-container {
   height: 60px;
