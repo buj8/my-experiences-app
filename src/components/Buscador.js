@@ -20,40 +20,52 @@ function Buscador() {
         setShow(true);
     }
 
+    function mapSearch(cont) {
+        setCont(cont);
+        setLugar("");
+    }
+
+    function search(event) {
+        event.preventDefault();
+        console.log(event.currentTarget[0].value);
+        setCont("");
+        setLugar(event.currentTarget[0].value);
+    }
+
     return <><div id="busq">
         <h2>Aquí empieza tu experiencia</h2>
         <h5><br />Usa nuestro buscador para encontrar experiencias específicas o busca por continente con nuestro mapa</h5>
-        <div className="divBusqueda field" id="searchform">
+        <form className="divBusqueda field" id="searchform" onSubmit={search}>
             <input type="text" id="searchterm" placeholder="¿Qué estás buscando?" />
-            <button type="button" id="search" ><BsSearch /></button>
-        </div>
+            <button type="submit" id="search" ><BsSearch /></button>
+        </form>
 
         <div id="mapsearch" className="divBusqueda">
             <img src="images/map.png" useMap="#image-map" />
             <map name="image-map">
                 <OverlayTrigger placement="top-start" overlay={<Tooltip><strong>Norteamérica</strong> </Tooltip>}>
-                    <area target="" alt="norteamerica" title="" href="#" coords="110,191,171,151,210,98,264,90,298,17,209,9,164,2,54,15,23,26,10,51,3,77,3,89,51,151" shape="poly" />
+                    <area target="" alt="norteamerica" title="" onClick={() => mapSearch("North America")} href="#" coords="110,191,171,151,210,98,264,90,298,17,209,9,164,2,54,15,23,26,10,51,3,77,3,89,51,151" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="bottom-start" overlay={<Tooltip> <strong>Sudamérica</strong> </Tooltip>}>
-                    <area target="" alt="sudamerica" title="" href="#" coords="145,339,203,340,246,224,209,180,160,168,130,179,111,207" shape="poly" />
+                    <area target="" alt="sudamerica" title="" onClick={() => mapSearch("South America")} href="#" coords="145,339,203,340,246,224,209,180,160,168,130,179,111,207" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="bottom" overlay={<Tooltip> <strong>África</strong> </Tooltip>}>
-                    <area target="" alt="africa" title="" href="#" coords="341,300,418,261,425,191,402,171,391,173,379,157,361,125,330,122,322,112,267,131,251,171,305,280" shape="poly" />
+                    <area target="" alt="africa" title="" onClick={() => mapSearch("Africa")} href="#" coords="341,300,418,261,425,191,402,171,391,173,379,157,361,125,330,122,322,112,267,131,251,171,305,280" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="right-end" overlay={<Tooltip> <strong>Oceanía</strong> </Tooltip>}>
-                    <area target="" alt="oceania" title="" href="#" coords="559,321,663,310,648,217,611,204,589,220,506,258,515,286" shape="poly" />
+                    <area target="" alt="oceania" title="" onClick={() => mapSearch("Oceania")} href="#" coords="559,321,663,310,648,217,611,204,589,220,506,258,515,286" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="right-start" overlay={<Tooltip> <strong>Asia</strong> </Tooltip>}>
-                    <area target="" alt="asia" title="" href="#" coords="363,116,378,109,395,110,419,60,414,25,477,11,546,23,609,35,645,70,645,143,616,196,598,208,525,238,434,189,384,165" shape="poly" />
+                    <area target="" alt="asia" title="" onClick={() => mapSearch("Asia")} href="#" coords="363,116,378,109,395,110,419,60,414,25,477,11,546,23,609,35,645,70,645,143,616,196,598,208,525,238,434,189,384,165" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="top" overlay={<Tooltip> <strong>Europa</strong> </Tooltip>}>
-                    <area target="" alt="europa" title="" href="#" coords="271,97,316,2,393,15,422,49,399,109,267,124" shape="poly" />
+                    <area target="" alt="europa" title="" onClick={() => mapSearch("Europe")} href="#" coords="271,97,316,2,393,15,422,49,399,109,267,124" shape="poly" />
                 </OverlayTrigger>
             </map>
         </div >
     </div >
         <div id="colExperiencias">
-            <ColumnaExperiencia lugar={busqLugar} />
+            <ColumnaExperiencia lugar={busqLugar} cont={busqCont} />
         </div>
         <Modal
             size="xl"
@@ -72,13 +84,23 @@ function Buscador() {
         var exps = [];
         var columna = [];
         var temp = [];
-        for (var i = 1; i < localStorage.getItem("nExp"); i++) {
+        for (var i = localStorage.getItem("nExp"); i > 0; i--) {
+            console.log(i);
             exps.push(JSON.parse(localStorage.getItem("E" + i)));
         }
 
         if (props.lugar) {
             for (i = 0; i < exps.length; i++) {
                 if (exps[i].lugar.toLowerCase().includes(props.lugar.toLowerCase())) {
+                    temp.push(exps[i]);
+                }
+            }
+            exps = temp;
+        }
+
+        if (props.cont) {
+            for (i = 0; i < exps.length; i++) {
+                if (exps[i].continente.toLowerCase().includes(props.cont.toLowerCase())) {
                     temp.push(exps[i]);
                 }
             }

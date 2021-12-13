@@ -6,6 +6,8 @@ import Registro from './Registro';
 import Mensajes from './Mensajes';
 import Cerrar from './Cerrar';
 import PagExperiencia from './PagExperiencia';
+import CrearExp from './CrearExp';
+import Ranking from './Ranking';
 
 function Popup(props) {
 
@@ -18,12 +20,14 @@ function Popup(props) {
             return <Login />;
         case "Registro":
             return <Registro />;
+        case "Ranking":
+            return <Ranking />;
         case "FAQ":
             return template;
         case "Contacto":
             return template;
-        case "Mensajes":
-            return <Mensajes />;
+        case "Crear nueva experiencia":
+            return <CrearExp />;
         case "Cerrar sesión":
             return <Cerrar />;
 

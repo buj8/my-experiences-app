@@ -1,14 +1,17 @@
 class Comentario {
-    constructor(u, exp, txt) {
+    constructor(comId, u, exp, txt) {
+        this.comId = comId;
         this.u = u;
         this.exp = exp;
         this.txt = txt;
         this.likes = [];
     }
     like() {
+        console.log("hey")
         if (!this.likes.includes(localStorage.getItem("currentUser"))) {
             this.likes.push((localStorage.getItem("currentUser")));
         }
+        localStorage.setItem(this.comId, JSON.stringify(this));
     }
 
     addComment() {

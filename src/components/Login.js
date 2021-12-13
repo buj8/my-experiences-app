@@ -1,13 +1,16 @@
 import { Form, Button } from 'react-bootstrap';
+import { useState } from 'react';
 
 
 function Login() {
 
+    const [errorEntrada, setError] = useState("");
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
         if (!checkLogin(form)) {
             event.preventDefault();
+            setError("Usuario y/o contraseña incorrectos");
         }
 
     };
@@ -22,6 +25,7 @@ function Login() {
             <Form.Label>Contraseña</Form.Label>
             <Form.Control type="password" placeholder="Introduce tu contraseña" />
         </Form.Group>
+        {errorEntrada}
         <Button variant="dark" type="submit">
             Entrar
         </Button>

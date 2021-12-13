@@ -10,16 +10,19 @@ import expList from './data/experiencias.json'
 import Comentario from './logic/Comentario'
 import comList from './data/comments.json'
 
+import { useState } from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
 
+
   function startApp() {
     localStorage.setItem("nUsers", "0");
     localStorage.setItem("nExp", "0");
     localStorage.setItem("nCom", "0");
-    //localStorage.setItem("currentUser", "U1");
+    localStorage.setItem("currentUser", "");
     localStorage.setItem("started", "1");
     for (var i = 0; i < userList.length; i++) {
       var u = userList[i]
@@ -33,7 +36,7 @@ function App() {
 
     for (i = 0; i < comList.length; i++) {
       var c = comList[i]
-      new Comentario(c.u, c.exp, c.txt).saveComment();
+      new Comentario("C" + (i + 1), c.u, c.exp, c.txt).saveComment();
     }
   }
 

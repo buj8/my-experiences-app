@@ -4,6 +4,7 @@ import jsonToUser from '../logic/jsonToUser'
 import Usuario from '../logic/Usuario';
 
 function Registro() {
+    const [errorMsg, setErrorMsg] = useState("");
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
@@ -18,7 +19,7 @@ function Registro() {
         if (checkAvailability(form)) {
             registerUser(form);
         }
-        else { console.log("taken"); }
+        else { setErrorMsg("Usuario y/o email no disponibles"); }
         setValidated(true);
     };
 
@@ -70,6 +71,7 @@ function Registro() {
         <Button variant="dark" type="submit">
             Crear cuenta
         </Button>
+        {errorMsg}
     </Form>;
 }
 

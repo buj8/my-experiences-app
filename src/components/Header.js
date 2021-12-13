@@ -33,9 +33,9 @@ function Header() {
         var currentUser = GetCurrentUser();
         navbarRight = <NavDropdown title={"@" + currentUser.username} id="collasible-nav-dropdown">
             <NavDropdown.Item onClick={() => openPopup("Perfil")} href="#">Perfil </NavDropdown.Item>
-            <NavDropdown.Item onClick={() => openPopup("Tus experiencias")} href="#">Experiencias</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => openPopup("Ránking")} href="#">Ránking</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => openPopup("Mensajes")} href="#">Mensajes</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => openPopup("Colecciones")} href="#">Colecciones</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => openPopup("Ranking")} href="#">Ránking</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => openPopup("Crear nueva experiencia")} href="#">Añadir experiencia</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={() => openPopup("Cerrar sesión")} href="#">Cerrar sesión</NavDropdown.Item>
         </NavDropdown>
