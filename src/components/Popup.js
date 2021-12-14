@@ -8,10 +8,13 @@ import Cerrar from './Cerrar';
 import PagExperiencia from './PagExperiencia';
 import CrearExp from './CrearExp';
 import Ranking from './Ranking';
+import Colecciones from './Colecciones';
 
 function Popup(props) {
 
     switch (props.caso) {
+        case "Colecciones":
+            return <Colecciones />;
         case "Experiencia":
             return <PagExperiencia experiencia={props.experiencia} />;
         case "Perfil":

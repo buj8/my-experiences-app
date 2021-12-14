@@ -27,6 +27,10 @@ class Usuario {
         localStorage.setItem("U" + parseInt(localStorage.getItem("nUsers")), JSON.stringify(this));
     }
 
+    updateUser() {
+        localStorage.setItem(localStorage.getItem("currentUser"), JSON.stringify(this));
+    }
+
 }
 
 function numinteres(num) {

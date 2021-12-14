@@ -1,5 +1,4 @@
-import Experiencia from "../logic/Experiencia";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button, Form } from 'react-bootstrap';
 import GetCurrentUser from "../data/currentUser";
 import Comentario from "../logic/Comentario";
@@ -8,8 +7,35 @@ import { AiFillLike } from 'react-icons/ai';
 
 function PagExperiencia(props) {
 
+    function GetColections(props) {
+        if (localStorage.getItem("currentUser") !== "") {
+            var options = []
+            var col;
+            for (var i = 1; i < parseInt(localStorage.getItem("nCol")) + 1; i++) {
+                col = JSON.parse(localStorage.getItem("COL" + i));
+                if (col.user === localStorage.getItem("currentUser") && !col.exps.includes(props.exp)) {
+                    options.push(<option value={'{"col": "COL' + col.colId + '", "exp": "' + props.exp + '"}'}> {col.title}</option >)
+                }
+            }
+        }
+        return <>{options}</>;
+    }
+
+    function addToColection(event) {
+        event.preventDefault();
+        var form = JSON.parse(event.currentTarget[0].value)
+        var col = form.col;
+        var exp = form.exp;
+        var coleccion = JSON.parse(localStorage.getItem(col))
+        coleccion.exps.push(exp)
+        console.log(coleccion);
+        localStorage.setItem(col, JSON.stringify(coleccion))
+        forceUpdate();
+        event.preventDefault();
+    }
+
     function likeExp(exp) {
-        if (localStorage.getItem("currentUser") != "") {
+        if (localStorage.getItem("currentUser") !== "" && exp.user !== localStorage.getItem("currentUser")) {
             if (!exp.likes.includes(localStorage.getItem("currentUser"))) {
                 exp.likes.push((localStorage.getItem("currentUser")));
             }
@@ -23,11 +49,13 @@ function PagExperiencia(props) {
 
 
     function likeComment(comment) {
-        if (!comment.likes.includes(localStorage.getItem("currentUser"))) {
-            comment.likes.push((localStorage.getItem("currentUser")));
-        }
-        else {
-            comment.likes.splice(comment.likes.indexOf("currentUser"), 1);
+        if (localStorage.getItem("currentUser") !== "" && comment.poster !== localStorage.getItem("currentUser")) {
+            if (!comment.likes.includes(localStorage.getItem("currentUser"))) {
+                comment.likes.push((localStorage.getItem("currentUser")));
+            }
+            else {
+                comment.likes.splice(comment.likes.indexOf("currentUser"), 1);
+            }
         }
         localStorage.setItem(comment.comId, JSON.stringify(comment));
         forceUpdate();
@@ -63,7 +91,6 @@ function PagExperiencia(props) {
 
     const comentar = (event) => {
         var form = event.currentTarget;
-        console.log(props.experiencia.expId);
         event.preventDefault();
         if (form[0].value != "") {
             new Comentario("C" + (parseInt(localStorage.getItem("nCom")) + 1), localStorage.getItem("currentUser"), props.experiencia.expId, form[0].value).saveComment();
@@ -74,14 +101,11 @@ function PagExperiencia(props) {
     }
 
     function CajaCom(props) {
-        console.log(coms)
         var coms = [];
         var temp;
         for (var i = 1; i < parseInt(localStorage.getItem("nCom")) + 1; i++) {
             temp = JSON.parse(localStorage.getItem("C" + i));
-            console.log(temp);
             if (temp.exp === props.id) {
-                console.log("-" + temp);
                 coms.push(<Comment com={temp} />);
             }
         }
@@ -97,8 +121,19 @@ function PagExperiencia(props) {
         <div id="expInfo">
             <img src={props.experiencia.imagen} alt="fotoExp" width="60%" />
             <ul id="expData">
+                <li><h4>{props.experiencia.dolar}</h4></li>
                 <li><a>{props.experiencia.descripcion} </a></li>
                 <li><button className="expLikes" onClick={() => likeExp(props.experiencia)}><AiFillLike />{props.experiencia.likes.length}</button></li>
+                <Form onSubmit={addToColection}>
+                    <Form.Group className="mb-3" controlId="regGender" >
+                        <Form.Select size="sm">
+                            <GetColections exp={props.experiencia.expId} />
+                        </Form.Select>
+                    </Form.Group>
+                    <Button variant="dark" type="submit" disabled={localStorage.getItem("currentUser") === ""}>
+                        Añadir a colección
+                    </Button>
+                </Form>
             </ul>
         </div>
         <div id="posterInfo">

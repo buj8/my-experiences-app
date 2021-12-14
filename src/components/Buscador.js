@@ -27,7 +27,6 @@ function Buscador() {
 
     function search(event) {
         event.preventDefault();
-        console.log(event.currentTarget[0].value);
         setCont("");
         setLugar(event.currentTarget[0].value);
     }
@@ -37,11 +36,11 @@ function Buscador() {
         <h5><br />Usa nuestro buscador para encontrar experiencias específicas o busca por continente con nuestro mapa</h5>
         <form className="divBusqueda field" id="searchform" onSubmit={search}>
             <input type="text" id="searchterm" placeholder="¿Qué estás buscando?" />
-            <button type="submit" id="search" ><BsSearch /></button>
+            <button type="submit" id="search" ><BsSearch /> </button>
         </form>
 
         <div id="mapsearch" className="divBusqueda">
-            <img src="images/map.png" useMap="#image-map" />
+            <img src="images/map.png" useMap="#image-map" alt="mapa" />
             <map name="image-map">
                 <OverlayTrigger placement="top-start" overlay={<Tooltip><strong>Norteamérica</strong> </Tooltip>}>
                     <area target="" alt="norteamerica" title="" onClick={() => mapSearch("North America")} href="#" coords="110,191,171,151,210,98,264,90,298,17,209,9,164,2,54,15,23,26,10,51,3,77,3,89,51,151" shape="poly" />
@@ -85,7 +84,6 @@ function Buscador() {
         var columna = [];
         var temp = [];
         for (var i = localStorage.getItem("nExp"); i > 0; i--) {
-            console.log(i);
             exps.push(JSON.parse(localStorage.getItem("E" + i)));
         }
 
@@ -124,7 +122,7 @@ function Buscador() {
         }
         return <Card id={props.id}>
             <div onClick={() => openExp(props.experiencia)}>
-                <Card.Img variant="top" src={props.experiencia.imagen} />
+                <Card.Img variant="top" src={props.experiencia.imagen} alt={"imagenExp" + props.id} />
                 <Card.Body>
                     <Card.Title>{props.experiencia.lugar}</Card.Title>
                     <Card.Text>

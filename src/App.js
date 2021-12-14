@@ -9,8 +9,8 @@ import Experiencia from './logic/Experiencia'
 import expList from './data/experiencias.json'
 import Comentario from './logic/Comentario'
 import comList from './data/comments.json'
+import Coleccion from './logic/Coleccion'
 
-import { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -24,6 +24,16 @@ function App() {
     localStorage.setItem("nCom", "0");
     localStorage.setItem("currentUser", "");
     localStorage.setItem("started", "1");
+    localStorage.setItem("nCol", "0")
+    var coleccion = new Coleccion("U21", "Coleccion 1");
+    coleccion.store();
+    coleccion.addExp("E12");
+    coleccion.addExp("E13");
+    var coleccion = new Coleccion("U21", "Coleccion 2");
+    coleccion.store();
+    coleccion.addExp("E1");
+    coleccion.addExp("E11");
+    coleccion.update();
     for (var i = 0; i < userList.length; i++) {
       var u = userList[i]
       new Usuario(u.username, u.pass, u.name, u.surname, u.email, u.bdate, u.interest, u.gender, u.picture).saveUser();

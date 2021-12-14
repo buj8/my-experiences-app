@@ -12,6 +12,7 @@ class Experiencia {
         this.colaboradores = [];
         this.likes = [];
         this.mensajes = [];
+        this.dolar = this.getPrecio();
     }
 
     addColaborador(colab) {

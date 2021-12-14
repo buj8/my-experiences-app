@@ -57,7 +57,7 @@ function CrearExp() {
         </Form.Group>
 
         <Button variant="dark" type="submit">
-            Crear cuenta
+            Añadir experiencia
         </Button>
     </Form>;
 }

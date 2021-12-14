@@ -24,6 +24,13 @@ body {
 
 #fotoExp {}
 
+.commentLikes {
+  border: none;
+  box-shadow: none;
+  background: none;
+  margin: 0%;
+}
+
 .commentArea {
   width: 80%;
 }
@@ -318,6 +325,13 @@ h2 {
   color: white;
 }
 
+.expLikes {
+  color: white;
+  background: none;
+  border: none;
+  margin-bottom: 10%;
+}
+
 #colExperiencias {
   display: grid;
   position: relative;
@@ -379,6 +393,31 @@ h2 {
 
 #datosPerfil {
   margin-left: 5%;
+}
+
+/* COLECCIONES */
+
+.coleccion {
+  width: 70%;
+  color: black;
+  padding-bottom: 5%;
+}
+
+.coleccion h3 {
+  color: white;
+  font-weight: bold;
+}
+
+.removeExp {
+  background: rgb(177, 35, 35);
+  color: black;
+  font-weight: bold;
+  float: right;
+  border: none;
+}
+
+.removeExp:hover {
+  color: white;
 }
 
 /* FOOTER */
