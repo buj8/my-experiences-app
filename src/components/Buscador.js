@@ -43,22 +43,22 @@ function Buscador() {
             <img src="images/map.png" useMap="#image-map" alt="mapa" />
             <map name="image-map">
                 <OverlayTrigger placement="top-start" overlay={<Tooltip><strong>Norteamérica</strong> </Tooltip>}>
-                    <area target="" alt="norteamerica" title="" onClick={() => mapSearch("North America")} href="#" coords="110,191,171,151,210,98,264,90,298,17,209,9,164,2,54,15,23,26,10,51,3,77,3,89,51,151" shape="poly" />
+                    <area target="norteamerica" alt="norteamerica" title="" onClick={() => mapSearch("North America")} href="#" coords="110,191,171,151,210,98,264,90,298,17,209,9,164,2,54,15,23,26,10,51,3,77,3,89,51,151" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="bottom-start" overlay={<Tooltip> <strong>Sudamérica</strong> </Tooltip>}>
-                    <area target="" alt="sudamerica" title="" onClick={() => mapSearch("South America")} href="#" coords="145,339,203,340,246,224,209,180,160,168,130,179,111,207" shape="poly" />
+                    <area target="sudamerica" alt="sudamerica" title="" onClick={() => mapSearch("South America")} href="#" coords="145,339,203,340,246,224,209,180,160,168,130,179,111,207" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="bottom" overlay={<Tooltip> <strong>África</strong> </Tooltip>}>
-                    <area target="" alt="africa" title="" onClick={() => mapSearch("Africa")} href="#" coords="341,300,418,261,425,191,402,171,391,173,379,157,361,125,330,122,322,112,267,131,251,171,305,280" shape="poly" />
+                    <area target="africa" alt="africa" title="" onClick={() => mapSearch("Africa")} href="#" coords="341,300,418,261,425,191,402,171,391,173,379,157,361,125,330,122,322,112,267,131,251,171,305,280" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="right-end" overlay={<Tooltip> <strong>Oceanía</strong> </Tooltip>}>
-                    <area target="" alt="oceania" title="" onClick={() => mapSearch("Oceania")} href="#" coords="559,321,663,310,648,217,611,204,589,220,506,258,515,286" shape="poly" />
+                    <area target="oceania" alt="oceania" title="" onClick={() => mapSearch("Oceania")} href="#" coords="559,321,663,310,648,217,611,204,589,220,506,258,515,286" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="right-start" overlay={<Tooltip> <strong>Asia</strong> </Tooltip>}>
-                    <area target="" alt="asia" title="" onClick={() => mapSearch("Asia")} href="#" coords="363,116,378,109,395,110,419,60,414,25,477,11,546,23,609,35,645,70,645,143,616,196,598,208,525,238,434,189,384,165" shape="poly" />
+                    <area target="asia" alt="asia" title="" onClick={() => mapSearch("Asia")} href="#" coords="363,116,378,109,395,110,419,60,414,25,477,11,546,23,609,35,645,70,645,143,616,196,598,208,525,238,434,189,384,165" shape="poly" />
                 </OverlayTrigger>
                 <OverlayTrigger placement="top" overlay={<Tooltip> <strong>Europa</strong> </Tooltip>}>
-                    <area target="" alt="europa" title="" onClick={() => mapSearch("Europe")} href="#" coords="271,97,316,2,393,15,422,49,399,109,267,124" shape="poly" />
+                    <area target="europa" alt="europa" title="" onClick={() => mapSearch("Europe")} href="#" coords="271,97,316,2,393,15,422,49,399,109,267,124" shape="poly" />
                 </OverlayTrigger>
             </map>
         </div >
